@@ -1,4 +1,4 @@
-# Task Manager - with SignalR
+# Task Manager - with SignalR and Angular
 
 #### Tartalom:
 - [Task](#task)
