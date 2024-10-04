@@ -1,0 +1,46 @@
+<div class="task-manager">
+  <h2>Task Manager</h2>
+
+  <!-- Create Task Section -->
+  <div class="create-task">
+    <input
+      [(ngModel)]="newTask.name"
+      placeholder="Task Name"
+      class="task-input"
+    />
+    <input
+      [(ngModel)]="newTask.assignedTo"
+      placeholder="Assign To"
+      class="task-input"
+    />
+    <button (click)="createTask()" class="task-button">Create Task</button>
+  </div>
+
+  <!-- Task List Section -->
+  <div class="tasks-list">
+    <h3>Tasks</h3>
+    <ul>
+      <li *ngFor="let task of tasks" class="task-item">
+        <div class="task-info">
+          <input
+            type="checkbox"
+            [checked]="task.isCompleted"
+            (change)="toggleTaskCompletion(task)"
+            class="task-checkbox"
+          />
+          <span [class.completed]="task.isCompleted"
+            >{{ task.name }} - {{ task.assignedTo }}</span
+          >
+        </div>
+        <div class="task-actions">
+          <button
+            (click)="deleteTask(task.id)"
+            class="task-action-button delete-button"
+          >
+            Delete
+          </button>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
