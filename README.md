@@ -9,7 +9,7 @@
 
 ### Overview
 Készíts egy egyszerű task manager (feladat kezelő) alkalmazást, ami egyszerre több felhasználó általi szerkesztést is lehetővé tesz. 
-Lehessen `Task`-okat létrehozni, módosítani, és törölni is. 
+Az alkalmazásban lehessen a meglévő `Task`-okat listázni, az egyes listaelemeket módosítani, és törölni is, valamint lehessen új `Task`-ot létrehozni.
 Websocket technológia segítségével tedd lehetővé, hogy a lista, vagy annak elemeinek változásáról azonnal értesüljön a többi szerkesztő is.
 
 ### Prerequisites:
@@ -166,10 +166,10 @@ app.Run();
         
     (nézd meg, hogy a Hub-on pontosan hogy hívják ezeket a metódusokat)
         
-6. Készíts egy TaskList komponents, ami `Task` komponenseket jeleníti meg egymás alatt. A taskokat a `taskService.tasks$` Observable-ből kapja meg. (tesztelésnek a `taskSubject` kezdeti értékébe tegyél pár Task objektumot)
-7. Az egyes `Task` listaelemeken legyen egy Checkbox, ami a Completed állapotát tükrözi, jelenítse meg a nevét, és hogy kihez van hozzárendelve az adott task, valamint legyen rajta egy `Delete` button, amivel majd törölni lehet az adott `Task`-ot.
-8. A Taskok listája fölött egy sorban legyen két input mező és hozzájuk egy-egy label: `Name`, `Assigned to`, valamint egy `Create task` button, amivel be lehet küldeni a backendnek a `Name` és `Assigned to` mezők értékeit.
-9. Az egyes listaelemeknek lehessen módosítani a Completed állapotát.
+5. Készíts egy TaskList komponents, ami `Task` komponenseket jeleníti meg egymás alatt. A taskokat a `taskService.tasks$` Observable-ből kapja meg. (tesztelésnek a `taskSubject` kezdeti értékébe tegyél pár Task objektumot)
+6. Az egyes `Task` listaelemeken legyen egy Checkbox, ami a Completed állapotát tükrözi, jelenítse meg a nevét, és hogy kihez van hozzárendelve az adott task, valamint legyen rajta egy `Delete` button, amivel majd törölni lehet az adott `Task`-ot.
+7. A Taskok listája fölött egy sorban legyen két input mező és hozzájuk egy-egy label: `Name`, `Assigned to`, valamint egy `Create task` button, amivel be lehet küldeni a backendnek a `Name` és `Assigned to` mezők értékeit.
+8. Az egyes listaelemeknek lehessen módosítani a Completed állapotát.
+9. Teszteld le az alkalmazást több böngészőablak egyidejű használatával, és nézd meg, hogy minden ablakban azonnal megjelennek -e az egyik ablakban végrehajtott változások
 
 Mind a `Create`, az `Update` és a `Delete` funkcionalitások úgy működjenek, hogy a taskService megfelelő metódusának segítségével beküldik a backendnek, hogy mi történt, a backend pedig kiértesíti a kapcsolódott klienseket különböző websocket üzenetekkel arról, ami történt, a kliensek pedig feliratkozásokkal reagálnak rá.
-
